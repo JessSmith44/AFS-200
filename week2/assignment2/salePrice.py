@@ -35,11 +35,11 @@ savings = float(total - discountTotal)
 
 tax = float(discountTotal * .065)
 
-finalTotal = float(discountPrice + tax)
+finalTotal = float(discountTotal + tax)
 
 # Display the total amount due from the customer.
 
-print(f"Your Receipt \n {quantity} {product}s at ${discountPrice:,.2f} \n Sales Tax ${tax:,.2f} \n Total amount due ${discountTotal:,.2f} \n You Saved ${savings:,.2f} Today.")
+print(f"Your Receipt \n {quantity} {product}s at ${discountPrice:,.2f} \n Sales Tax ${tax:,.2f} \n Total amount due ${finalTotal:,.2f} \n You Saved ${savings:,.2f} Today.")
 
 # Format the output as a fixed point number with two-decimal places, a comma as a thousand separator and the dollar sign.
 # Display the total amount saved. 780 - 195
