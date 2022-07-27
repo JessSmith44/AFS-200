@@ -34,10 +34,11 @@ def win_check():
             return -1
     return 1
 # Display the board to the user
-
+displayBoard = "Can you guess the secret word?" + str(wordBoard)
+print(displayBoard)
 # Prompt the user to guess a letter
 # If the user already guessed that letter, let the user know that
-# If the letter is in the secret word, display the updated board with the letters in the correct place
+
 # If the letter is not in the secret word, keep track of the number of wrong guesses.  When the user has five wrong guesses and the word hasn’t yet been guessed, then the game ends.
 # If the user has guessed all of the letters, the game ends.  Display the fully solved board to the user.
 num_turns = len(secretWord)
@@ -51,7 +52,7 @@ for i in range(0, num_turns):
         print("Sorry that letter is not in the word.")
 
     if win_check() == 1:
-        print("Congratulations you won!")
+        print("Congratulations you won! " +secretWord)
         break
 
     print("You have " +str(num_turns -i)+ " turns left.")
