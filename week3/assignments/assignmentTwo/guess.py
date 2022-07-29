@@ -9,17 +9,13 @@ wordBoard
 showBoard = "Can you guess the secret word?" + str(wordBoard)
 
 def checkGuess(guess, mySecretWord, wordBoard):
-    index = -2
-
+    index = mySecretWord.find(guess)
     while index != -1:
         if guess in mySecretWord:
             index = mySecretWord.find(guess)
-        # for checkguess
-        # should return boolean true or false, not sure if its working
             removed_character='*'
             mySecretWord = mySecretWord[:index]+removed_character+mySecretWord[index+1:]
             wordBoard[index] = guess
-
         else:
             index = -1
     return (mySecretWord, wordBoard)
@@ -39,6 +35,7 @@ while (num_turns):
 
     if guesses in mySecretWord:
         mySecretWord, wordBoard = checkGuess(guesses, mySecretWord, wordBoard)
+        guessedLetters.append(guesses)
         print(wordBoard)
     elif guesses in guessedLetters: 
         print("Oh-no! You already guessed " +guesses)
@@ -46,14 +43,13 @@ while (num_turns):
     else:
         print("Sorry that letter is not in the word.")
         num_turns = num_turns-1
+        guessedLetters.append(guesses)
 
     if win_check() == 1:
         num_turns = 0
         print("Congratulations you won! " +copyWord)
     elif num_turns == 0:
         print("Oh no! I am sorry, you lost!")
-
-    guessedLetters.append(guesses)
     
     print("You have " +str(num_turns)+ " turns left.")
     print()
