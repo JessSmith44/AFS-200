@@ -14,6 +14,7 @@ def checkGuess(guess, mySecretWord, wordBoard):
     while index != -1:
         if guess in mySecretWord:
             index = mySecretWord.find(guess)
+        # for checkguess
         # should return boolean true or false, not sure if its working
             removed_character='*'
             mySecretWord = mySecretWord[:index]+removed_character+mySecretWord[index+1:]
