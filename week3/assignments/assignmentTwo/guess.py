@@ -6,7 +6,6 @@ guessedLetters = []
 wordBoard=['_']*len(mySecretWord)
 wordBoard
 
-# showBoard = "Can you guess the secret word?" + str(wordBoard)
 def showBoard():
     print(" ".join(wordBoard))
 
@@ -39,7 +38,6 @@ while (num_turns):
     if guesses in mySecretWord:
         mySecretWord, wordBoard = checkGuess(guesses, mySecretWord, wordBoard)
         guessedLetters.append(guesses)
-        # print(wordBoard)
     elif guesses in guessedLetters: 
         print("Oh-no! You already guessed " +guesses)
         num_turns = num_turns
