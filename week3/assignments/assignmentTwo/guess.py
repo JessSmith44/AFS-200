@@ -6,7 +6,9 @@ guessedLetters = []
 wordBoard=['_']*len(mySecretWord)
 wordBoard
 
-showBoard = "Can you guess the secret word?" + str(wordBoard)
+# showBoard = "Can you guess the secret word?" + str(wordBoard)
+def showBoard():
+    print(" ".join(wordBoard))
 
 def checkGuess(guess, mySecretWord, wordBoard):
     index = mySecretWord.find(guess)
@@ -26,20 +28,21 @@ def win_check():
             return -1
     return 1
 
-print(showBoard)
+print("Can you guess the secret word?")
 
 num_turns = 5
 
 while (num_turns):
+    showBoard()
     guesses = input("Guess a character: ").upper()
 
     if guesses in mySecretWord:
         mySecretWord, wordBoard = checkGuess(guesses, mySecretWord, wordBoard)
         guessedLetters.append(guesses)
-        print(wordBoard)
+        # print(wordBoard)
     elif guesses in guessedLetters: 
         print("Oh-no! You already guessed " +guesses)
-        num_turns = num_turns-1
+        num_turns = num_turns
     else:
         print("Sorry that letter is not in the word.")
         num_turns = num_turns-1
