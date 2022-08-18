@@ -44,7 +44,7 @@ for u in range(0,25):
         nat = currentUser["nat"]
 
         newContact = Contact(firstName, lastName, email, phone, photo)
-        # print(newContact) 25 contacts print as they should.
+        # print(newContact)
         theAddressBook.addAddress(newContact)
 
     # print(jsonUserData)

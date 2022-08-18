@@ -41,7 +41,6 @@ class Contact():
 
         return retStr
 
-
     def __repr__(self):
         return self.firstName
 
