@@ -1,0 +1,34 @@
+<!-- 
+Create a template file to display the trivia questions to the user. (See sample below)
+Note that you can pass multiple variables to render_template function.
+render_template('example.html', var1=values1, var2=values2, var3=values3, ...) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='/mainstyle.css') }}" rel="stylesheet" type="text/css" />
+    <title>Trivia Game</title>
+</head>
+<body>
+    <h1> Trivia Game </h1>
+    <!-- answers should be set up with a radio button 
+    name "inputAnswer" on py file. Should be per question-->
+    <form class="rolodex" action="http://127.0.0.1:5000/score" method="POST">
+        {% for question in results %}
+		<div class="card">
+            <div class={{ question.id_iter }}> {{ question.getQuestion() | safe }} </div>
+            
+            <div class="answers">
+                {% for answer in question.getShuffledAnswers() %}
+                <input type="radio" id={{ question.id_iter }} name={{ question.id_iter }} value={{ answer | safe }}>
+                <label>{{ answer | safe }}</label>
+                {% endfor%}
+            </div>
+        </div> 
+        {% endfor %}          
+        <button class="btn"> Score </button>
+    </form>
+</body>
+</html>

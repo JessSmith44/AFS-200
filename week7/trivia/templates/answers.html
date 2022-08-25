@@ -1,0 +1,29 @@
+<!-- Create a template file to display the correct and incorrect questions with answers (See sample below)
+Note that you can pass multiple variables to render_template function.
+render_template('example.html', var1=values1, var2=values2, var3=values3, ...) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='/style.css') }}" rel="stylesheet" type="text/css" />
+    <title>Trivia Game Answers!</title>
+</head>
+<body>
+    <h1> Score </h1>
+    <div class="rolodex">
+        <h2> You got the following questions correct: </h2>
+        {% for question in results.correct %}
+            <ul class="question"> {{ question.getQuestion() | safe }} </ul> 
+            <ul class="answer"> {{ question.correctAns | safe }} </ul>
+        {% endfor %}
+        <h2> You got the following questions incorrect: </h2>
+        {% for question in results.incorrect %}
+            <ul class="question"> {{ question.getQuestion() | safe }} </ul>
+            <ul class="answer"> {{ question.correctAns | safe }} </ul>
+        {% endfor %}
+        <button class="btn" action="http://127.0.0.1:5000/" method="GET"> New Game </button>
+    </div>
+</body>
+</html>
