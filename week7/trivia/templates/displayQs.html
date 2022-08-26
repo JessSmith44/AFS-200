@@ -18,11 +18,11 @@ render_template('example.html', var1=values1, var2=values2, var3=values3, ...) -
     <form class="rolodex" action="http://127.0.0.1:5000/score" method="POST">
         {% for question in results %}
 		<div class="card">
-            <div class={{ question.id_iter }}> {{ question.getQuestion() | safe }} </div>
+            <div class="{{ question.id_iter }}"> {{ question.getQuestion() | safe }} </div>
             
             <div class="answers">
                 {% for answer in question.getShuffledAnswers() %}
-                <input type="radio" id={{ question.id_iter }} name={{ question.id_iter }} value={{ answer | safe }}>
+                <input type="radio" id="{{ question.id_iter }}" name="{{ question.id_iter }}" value="{{ answer | safe }}">
                 <label>{{ answer | safe }}</label>
                 {% endfor%}
             </div>

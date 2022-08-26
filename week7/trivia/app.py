@@ -48,7 +48,6 @@ for data in jsonData["results"]:
  
 theTriviaGame.getAllQuestions()
 
-
 app = Flask(__name__)
 
 @app.route("/")
